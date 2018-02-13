@@ -1,6 +1,6 @@
 package org.klechcorp.stringcalculator;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.StringJoiner;
 
@@ -38,5 +38,12 @@ public class StringCalculatorTest {
 	public void canAddMultipleNbr() throws Exception {
 		addNbr(new int[]{3,2,1});
 	}
+	
+	@Test
+	public void supportCRLF() throws Exception {
+		assertEquals(6, StringCalculator.add("1\n,2,3"));
+	}
+	
+	
 
 }

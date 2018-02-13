@@ -4,7 +4,7 @@ import java.util.StringTokenizer;
 
 public class StringCalculator {
 
-	private static final String SEPARATOR = ",";
+	private static final String SEPARATOR = ",\n";
 
 	public static int add(String _numbers) {
 		if (_numbers.length() == 0) {
