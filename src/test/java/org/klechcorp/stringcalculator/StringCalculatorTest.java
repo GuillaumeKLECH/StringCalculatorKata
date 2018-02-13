@@ -1,6 +1,8 @@
 package org.klechcorp.stringcalculator;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
+import java.util.StringJoiner;
 
 import org.junit.Test;
 
@@ -11,19 +13,30 @@ public class StringCalculatorTest {
 		assertEquals(0, StringCalculator.add(""));
 	}
 	
-	@Test
-	public void canAdd1Nbr() throws Exception {
-		assertEquals(1, StringCalculator.add("1"));
+	public void addNbr(int[] nbrs) {
+		StringJoiner sj = new StringJoiner(",");
+		int sum = 0;
+		for(int i = 0 ; i < nbrs.length; ++i) {
+			sum += nbrs[i];
+			sj.add(Integer.toString(nbrs[i]));
+		}
+		assertEquals(sum, StringCalculator.add(sj.toString()));
 	}
 	
 	@Test
+	public void canAdd1Nbr() throws Exception {
+		addNbr(new int[] {1});
+	}
+	
+	
+	@Test
 	public void canAdd2Nbr() throws Exception {
-		assertEquals(2, StringCalculator.add("1,1"));
+		addNbr(new int[]{1,1});
 	}
 	
 	@Test
 	public void canAddMultipleNbr() throws Exception {
-		assertEquals(6, StringCalculator.add("3,2,1"));
+		addNbr(new int[]{3,2,1});
 	}
 
 }
