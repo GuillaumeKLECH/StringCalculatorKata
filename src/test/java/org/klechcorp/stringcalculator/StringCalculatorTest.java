@@ -15,5 +15,10 @@ public class StringCalculatorTest {
 	public void canAdd1Nbr() throws Exception {
 		assertEquals(1, StringCalculator.add("1"));
 	}
+	
+	@Test
+	public void canAdd2Nbr() throws Exception {
+		assertEquals(2, StringCalculator.add("1,1"));
+	}
 
 }
